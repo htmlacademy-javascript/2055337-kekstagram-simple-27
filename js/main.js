@@ -12,9 +12,9 @@ function getRandomIntInclusive (min, max) {
 window.console.log (getRandomIntInclusive(1, 9))
 
 
-function checkMaxStringLength (string, lenght) {
+function checkMaxStringLength (string, length) {
 
-  return string.lenght <= lenght;
+  return string.length <= length;
 }
 
 checkMaxStringLength ("",140);
