@@ -30,13 +30,6 @@ const CommentsCount = {
   MAX: 200,
 };
 
-//const getImages = () =>
-//  Array.from({length:IMAGES_COUNT}, (_, imagesIndex) =>
-//    createImages(imagesIndex + 1)
-//  );
-
-//getImages();
-
 const getRandomArrayElement = (array) =>
   array[getRandomIntInclusive(0, array.length - 1)];
 
@@ -48,14 +41,14 @@ const description = [
  'Отдыхаем... #relax #chill #group',
 ]
 
-const createImages = () => {
+const createImageObj = () => {
   return {
     id: getRandomIntInclusive(1, IMAGES_COUNT),
     url: `images/${getRandomIntInclusive(1, IMAGES_COUNT)}.jpg`,
-    description: getRandomArrayElement(description),
+    descriptions: getRandomArrayElement(description),
     likes: getRandomIntInclusive(LikesCount.MIN, LikesCount.MAX),
     comments: getRandomIntInclusive(CommentsCount.MIN, CommentsCount.MAX),
   };
 };
 
-console.log (createImages())
+console.log (createImageObj())
