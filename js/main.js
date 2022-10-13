@@ -17,3 +17,38 @@ function checkMaxStringLength (string, length) {
 }
 
 checkMaxStringLength ('',140);
+
+const IMAGES_COUNT = 25;
+
+const LikesCount = {
+  MIN: 15,
+  MAX: 200,
+};
+
+const CommentsCount = {
+  MIN: 0,
+  MAX: 200,
+};
+
+const getRandomArrayElement = (array) =>
+  array[getRandomIntInclusive(0, array.length - 1)];
+
+const description = [
+ 'Летний отдых на югах. #лето #отдых #chill',
+ 'Тестим новую камеру. #new #camera #test',
+ 'Цените каждое мгновение!!! #travel #photo',
+ 'Незабываемое путешествие! #travel #fun #cool',
+ 'Отдыхаем... #relax #chill #group',
+]
+
+const createImageObj = () => {
+  return {
+    id: getRandomIntInclusive(1, IMAGES_COUNT),
+    url: `images/${getRandomIntInclusive(1, IMAGES_COUNT)}.jpg`,
+    descriptions: getRandomArrayElement(description),
+    likes: getRandomIntInclusive(LikesCount.MIN, LikesCount.MAX),
+    comments: getRandomIntInclusive(CommentsCount.MIN, CommentsCount.MAX),
+  };
+};
+
+console.log (createImageObj())
