@@ -30,6 +30,13 @@ const CommentsCount = {
   MAX: 200,
 };
 
+const getImages = () =>
+  Array.from({length:IMAGES_COUNT}, (_, imagesIndex) =>
+  createImageObj(imagesIndex + 1)
+  );
+
+getImages();
+
 const getRandomArrayElement = (array) =>
   array[getRandomIntInclusive(0, array.length - 1)];
 
