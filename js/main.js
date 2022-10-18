@@ -1,5 +1,5 @@
 import {
-  createImageObj
+  getImages
 } from './data.js';
 
-createImageObj();
+getImages();
