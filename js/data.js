@@ -34,7 +34,7 @@ const createImageObj = () => {
   };
 };
 
-const getImages = Array.from({length: IMAGES_COUNT + 1}, createImageObj);
+const getImages = Array.from({length: IMAGES_COUNT}, createImageObj);
 
 console.log(createImages);
 
