@@ -26,7 +26,7 @@ const CommentsCount = {
 
 const createImageObj = () => ({
   id: getRandomIntInclusive(1, IMAGES_COUNT),
-  url: `./images/${getRandomIntInclusive(1, IMAGES_COUNT)}.jpg`,
+  url: `./photos/${getRandomIntInclusive(1, IMAGES_COUNT)}.jpg`,
   descriptions: getRandomArrayElement(description),
   likes: getRandomIntInclusive(LikesCount.MIN, LikesCount.MAX),
   comments: getRandomIntInclusive(CommentsCount.MIN, CommentsCount.MAX),
