@@ -3,8 +3,7 @@ import {
 } from './data.js';
 
 import {
-  renderPicture
+  renderPictures
 } from './picture.js';
 
-getImages();
-renderPicture();
+renderPictures(getImages);
