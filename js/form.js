@@ -1,7 +1,7 @@
 
 const form = document.querySelector('.img-upload__form');
 const overlay = document.querySelector('.img-upload__overlay');
-const body = document.querySelector('.body');
+const body = document.querySelector('body');
 const cancelButton = document.querySelector('#upload-cancel');
 const fileField = document.querySelector('#upload-file');
 const commentField = document.querySelector('.text__description');
