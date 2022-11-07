@@ -8,27 +8,27 @@ const MIN_SCALE = 25;
 const MAX_SCALE = 100;
 const DEFAULT_SCALE = 100;
 
+let currentValue = parseInt(scaleInput.value, 10);
+
 const scaleImage = (value = DEFAULT_SCALE) => {
   image.style.transform = `scale(${value / 100})`;
   scaleImage.value = `${value}%`;
 };
 
 const onSmallerButtonClick = () => {
-  const currentValue = parseInt(scaleInput.value, 10);
-  let newValue = currentValue - SCALE_STEP;
-  if (newValue < MIN_SCALE) {
-    newValue = MIN_SCALE;
+  currentValue = currentValue - SCALE_STEP;
+  if (currentValue < MIN_SCALE) {
+    currentValue = MIN_SCALE;
   }
-  scaleImage(newValue);
+  scaleImage(currentValue);
 };
 
 const onBiggerButtonClick = () => {
-  const currentValue = parseInt(scaleInput.value, 10);
-  let newValue = currentValue + SCALE_STEP;
-  if (newValue > MAX_SCALE) {
-    newValue = MAX_SCALE;
+  currentValue = currentValue + SCALE_STEP;
+  if (currentValue > MAX_SCALE) {
+    currentValue = MAX_SCALE;
   }
-  scaleImage(newValue);
+  scaleImage(currentValue);
 };
 
 const resetScale = () => {
