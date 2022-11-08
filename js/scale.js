@@ -12,7 +12,7 @@ let currentValue = parseInt(scaleInput.value, 10);
 
 const scaleImage = (value = DEFAULT_SCALE) => {
   image.style.transform = `scale(${value / 100})`;
-  scaleImage.value = `${value}%`;
+  scaleInput.value = `${value}%`;
 };
 
 const onSmallerButtonClick = () => {
