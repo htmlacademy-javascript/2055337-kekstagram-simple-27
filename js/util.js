@@ -1,3 +1,4 @@
+
 function getRandomIntInclusive (min, max) {
   if (min < 0 || 0 > max) {
     return NaN;
@@ -12,8 +13,5 @@ function checkMaxStringLength (string, length) {
 const getRandomArrayElement = (array) =>
   array[getRandomIntInclusive(0, array.length - 1)];
 
-export {
-  getRandomArrayElement,
-  checkMaxStringLength,
-  getRandomIntInclusive
-};
+export { getRandomArrayElement, checkMaxStringLength, getRandomIntInclusive};
+

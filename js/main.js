@@ -1,6 +1,3 @@
-import {
-  getImages
-} from './data.js';
 
 import {
   renderPictures
@@ -12,4 +9,8 @@ import './scale.js';
 
 import './form.js';
 
-renderPictures(getImages);
+import {
+  getData
+}from './api.js';
+
+getData(renderPictures);
