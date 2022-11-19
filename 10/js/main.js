@@ -1,3 +1,6 @@
+import {
+  showAlert
+} from './util.js';
 
 import {
   renderPictures
@@ -7,10 +10,15 @@ import './effect.js';
 
 import './scale.js';
 
-import './form.js';
+import {
+  setUserFormSubmit, hideModal
+} from './form.js';
 
 import {
   getData
 }from './api.js';
 
-getData(renderPictures);
+getData(renderPictures, showAlert);
+
+setUserFormSubmit(hideModal);
+
