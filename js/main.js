@@ -1,6 +1,6 @@
 import {
-  getImages
-} from './data.js';
+  showAlert
+} from './util.js';
 
 import {
   renderPictures
@@ -10,6 +10,15 @@ import './effect.js';
 
 import './scale.js';
 
-import './form.js';
+import {
+  setUserFormSubmit, hideModal
+} from './form.js';
 
-renderPictures(getImages);
+import {
+  getData
+}from './api.js';
+
+getData(renderPictures, showAlert);
+
+setUserFormSubmit(hideModal);
+

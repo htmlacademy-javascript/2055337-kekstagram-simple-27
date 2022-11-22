@@ -6,16 +6,26 @@ import {
   resetEffects
 } from './effect.js';
 
+import {
+  sendData
+} from './api.js';
+
+import {
+  showAlert
+} from './util.js';
+
 const form = document.querySelector('.img-upload__form');
 const overlay = document.querySelector('.img-upload__overlay');
 const body = document.querySelector('body');
 const cancelButton = document.querySelector('#upload-cancel');
 const fileField = document.querySelector('#upload-file');
 const commentField = document.querySelector('.text__description');
+const imgButtonSubmit = document.querySelector('.img-upload__submit');
 
 const showModal = () => {
   overlay.classList.remove('hidden');
   body.classList.add('modal-open');
+  resetScale();
   document.addEventListener('keydown', onEscKeyDown);
 };
 
@@ -53,3 +63,34 @@ const onFormSubmit = (evt) => {
 fileField.addEventListener('change', onFileInputChange);
 cancelButton.addEventListener('click', onCancelButtonClick);
 form.addEventListener('submit', onFormSubmit);
+
+function blockSubmitButton () {
+  imgButtonSubmit.disabled = true;
+  imgButtonSubmit.textContent = 'Публикую...';
+}
+
+function unblockSubmitButton () {
+  imgButtonSubmit.disabled = false;
+  imgButtonSubmit.textContent = 'Опубликовать';
+}
+
+function setUserFormSubmit(onSuccess) {
+  form.addEventListener('submit', (evt) => {
+    evt.preventDefault();
+    blockSubmitButton();
+
+    sendData(
+      () => {
+        onSuccess();
+        unblockSubmitButton();
+      },
+      () => {
+        showAlert('Произошла ошибка. Попробуйте повторить позже.');
+        unblockSubmitButton();
+      },
+      new FormData(evt.target),
+    );
+  });
+}
+
+export { setUserFormSubmit, hideModal };
