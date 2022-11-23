@@ -10,9 +10,7 @@ import './effect.js';
 
 import './scale.js';
 
-import {
-  setUserFormSubmit, hideModal
-} from './form.js';
+import './form.js';
 
 import {
   getData
@@ -20,5 +18,4 @@ import {
 
 getData(renderPictures, showAlert);
 
-setUserFormSubmit(hideModal);
 
