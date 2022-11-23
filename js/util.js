@@ -35,5 +35,9 @@ const showAlert = (message) => {
   }, ALERT_SHOW_TIME);
 };
 
-export { getRandomArrayElement, checkMaxStringLength, getRandomIntInclusive, showAlert };
+function isEscapeKey(evt) {
+  return evt.key === 'Escape';
+}
+
+export { getRandomArrayElement, checkMaxStringLength, getRandomIntInclusive, showAlert, isEscapeKey };
 
