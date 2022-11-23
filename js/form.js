@@ -10,9 +10,7 @@ import {
   sendData
 } from './api.js';
 
-import {
-  showAlert
-} from './util.js';
+import { showSuccessTemplate, showErrorTemplate } from './response.js';
 
 const form = document.querySelector('.img-upload__form');
 const overlay = document.querySelector('.img-upload__overlay');
@@ -74,23 +72,21 @@ function unblockSubmitButton () {
   imgButtonSubmit.textContent = 'Опубликовать';
 }
 
-function setUserFormSubmit(onSuccess) {
-  form.addEventListener('submit', (evt) => {
-    evt.preventDefault();
-    blockSubmitButton();
 
-    sendData(
-      () => {
-        onSuccess();
-        unblockSubmitButton();
-      },
-      () => {
-        showAlert('Произошла ошибка. Попробуйте повторить позже.');
-        unblockSubmitButton();
-      },
-      new FormData(evt.target),
-    );
-  });
-}
+form.addEventListener('submit', (evt) => {
+  blockSubmitButton();
+  sendData(
+    () => {
+      unblockSubmitButton();
+      showSuccessTemplate();
+    },
+    () => {
+      document.removeEventListener('keydown', onEscKeyDown);
+      showErrorTemplate();
+      unblockSubmitButton();
+    },
+    new FormData(evt.target),
+  );
+});
 
-export { setUserFormSubmit, hideModal };
+export { onEscKeyDown };
