@@ -45,7 +45,7 @@ function showErrorTemplate() {
 
   const onClickErrorPromise = new Promise((resolve) => {
     document.addEventListener('keydown', (evt) => {
-      if (evt.key === 'Escape') {
+      if (isEscapeKey(evt)) {
         evt.preventDefault();
         errorElement.remove();
         resolve();
