@@ -12,6 +12,8 @@ import './scale.js';
 
 import './form.js';
 
+import './response.js';
+
 import {
   getData
 }from './api.js';
