@@ -7,6 +7,10 @@ import {
 } from './effect.js';
 
 import {
+  isEscapeKey
+} from './util.js';
+
+import {
   sendData
 } from './api.js';
 
@@ -40,7 +44,7 @@ const isTextFieldFocused = () =>
   document.activeElement === commentField;
 
 function onEscKeyDown(evt) {
-  if (evt.key === 'Escape' && !isTextFieldFocused()) {
+  if (isEscapeKey(evt) && !isTextFieldFocused()) {
     evt.preventDefault();
     hideModal();
   }
@@ -79,6 +83,7 @@ form.addEventListener('submit', (evt) => {
     () => {
       unblockSubmitButton();
       showSuccessTemplate();
+      hideModal();
     },
     () => {
       document.removeEventListener('keydown', onEscKeyDown);

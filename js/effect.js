@@ -106,7 +106,7 @@ noUiSlider.create(sliderElement, {
   },
   step: DEFAULT_EFFECT.step,
   start: DEFAULT_EFFECT.max,
-  connet: 'lower',
+  connect: 'lower',
 });
 updateSlider();
 
